@@ -122,7 +122,7 @@ def create_regular():
                 dpg.hide_item(slidetag)
 
         # TODO: Create callback for "Roll My Dice!" button to gather data and display it on the next screen
-         # Add the button to process the information:
+        # Add the button to process the information:
         dpg.add_button(label="Roll My Dice!", callback=callback, user_data="😊")
         # Map the screen name in the dictionary screens:
         screens["regular_mode"] = "regular_mode"
@@ -142,7 +142,6 @@ def toggle_slide(sender, app_data, user_data):
         if dpg.get_value(r_dice_boxes[user_data]):
             # If the box is checked, show the slider:
             dpg.show_item(r_dice_sliders[user_data])
-
         else:
             # If the box is unchecked, hide the slider:
             dpg.hide_item(r_dice_sliders[user_data])
