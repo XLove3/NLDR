@@ -147,10 +147,22 @@ def toggle_slide(sender, app_data, user_data):
             dpg.hide_item(r_dice_sliders[user_data])
 
 
-# TODO: Create function to gather results of choosing dice
+# TODO: Create function to gather the data represented in Regular Mode
+# Create function to gather results of choosing dice
+def gather_reg():
+    # TODO: Create docstring for function gather_reg()
+    '''Docstring'''
+
+    r_selected_items.clear()
+
+    for name in dice_names:
+        if dpg.get_value(r_dice_sliders[name]):
+            count = dpg.get_value(r_dice_sliders)
+            r_selected_items[name] = count
+    print("---> create_results_reg()")
 
 
-# TODO: Create function to show Regular Mode results
+# TODO: Create function housing the logic for Regular Mode using the dice chosen in Regular Mode screen
 
 
 # *** Average Mode ***
@@ -172,6 +184,7 @@ def program_setup():
     show("regular_mode")
 
 
+# Run the program that initializes each screen (and functions):
 program_setup()
 
 # DPG - Show the Viewport:
