@@ -2,6 +2,8 @@
 import dearpygui.dearpygui as dpg, random as rd
 
 
+# TODO: Show the list of every roll in Average when it or a button is clicked on
+
 # *** Global Variables ***
 
 # The Neat Little Dice Game will be set up into a dictionary of "screens":
@@ -29,6 +31,15 @@ a_dice_sliders = {}
 a_selected_items = {}
 a_rolls = 1
 
+# TODO: Maybe turn this part into a dictionary: {"label_color": "[#, #, #]"}
+# Colors and stuff:
+instruction_color = [102, 178, 255]
+tip_color = [160, 160, 160]
+title_color = [255, 102, 0]
+main_header_color = [0, 255, 255]
+sep_color = [144, 30, 2]
+total_text_color = [37, 206, 65]
+total_color = [51, 255, 51]
 
 # *** Starting Setup ***
 
@@ -56,6 +67,7 @@ def show_screen(name):
 
     else:
         raise Exception(f"screen '{name}' was not found.")
+        # TODO: Change to try-except and show a popup with the text, and program does not progress, maybe show the screen again? 
 
 
 # *** Welcome Screen ***
@@ -70,9 +82,10 @@ def create_welcome():
         label="Welcome",
         tag="welcome",
         show=False
-    ):
+        ):
+
         # Add Title:
-        dpg.add_text("Neat Little Dice Roller", color=[255, 102, 0])
+        dpg.add_text("Neat Little Dice Roller", color=title_color)
         dpg.add_separator()
 
         # Explain the game:
@@ -81,30 +94,45 @@ def create_welcome():
         dpg.add_spacer()
         dpg.add_spacer()
 
-        dpg.add_text("--> Pick from 7 different-sided dice "
-                     "(2, 4, 6, 10, 12, 20, and 100).")
+        dpg.add_text(
+            "--> Pick from 7 different-sided dice "
+            "(2, 4, 6, 10, 12, 20, and 100).",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
-        dpg.add_text("--> After you choose which dice you'd like "
-                     "to roll, pick how many of each die you'd "
-                     "like to roll (up to 5).")
+        dpg.add_text(
+            "--> After you choose which dice you'd like "
+            "to roll, pick how many of each die you'd "
+            "like to roll (up to 5).",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
-        dpg.add_text("--> If you choose Regular Mode, Roll the "
-                     "Dice! and you'll receive the result of "
-                     "each die's roll, as well as the total "
-                     "from all the dice rolled.")
+        dpg.add_text(
+            "--> If you choose Regular Mode, Roll the "
+            "Dice! and you'll receive the result of "
+            "each die's roll, as well as the total "
+            "from all the dice rolled.",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
-        dpg.add_text("--> If you choose Average Mode, you'll "
-                     "also choose how many times to roll the "
-                     "dice. (1-1,000,000)")
+        dpg.add_text(
+            "--> If you choose Average Mode, you'll "
+            "also choose how many times to roll the "
+            "dice. (1 - 5,000)",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
-        dpg.add_text("--> Roll the Dice! and receive the average "
-                     "of each dice rolled that many times. "
-                     "You'll also get the average of all rolls "
-                     "across all dice chosen.")
+        dpg.add_text(
+            "--> Roll the Dice! and receive the average "
+            "of each dice rolled that many times. "
+            "You'll also get the average of all rolls "
+            "across all dice chosen.",
+            color=instruction_color
+            )
 
         dpg.add_spacer()
         dpg.add_spacer()
@@ -118,6 +146,8 @@ def create_welcome():
         dpg.add_spacer()
         dpg.add_spacer()
 
+        # TODO: Create a comment for button "play"
+        #
         dpg.add_button(
             label="Play the Neat Little Dice Game!",
             tag="play",
@@ -140,24 +170,29 @@ def create_menu():
         label="Main Menu",
         tag="main_menu",
         show=False
-    ):
+        ):
 
         # Add title/instruction:
+        dpg.add_text("Main Menu:", color=title_color)
         dpg.add_text(
-            "Main Menu:  "
             "Please choose which mode you would "
-            "like to play.", color=[255, 102, 0])
+            "like to play.", 
+            color=instruction_color
+            )
         dpg.add_spacer()
         dpg.add_separator()
         dpg.add_spacer()
 
         # Within a horizontal group:
         with dpg.group(horizontal=True):
+
+            # TODO: Create a comment about group
+            #
             with dpg.group(width=500):
 
                 # Add text to describe Regular Mode:
                 dpg.add_spacer()
-                dpg.add_text("Regular Mode:", color=[0, 255, 255])
+                dpg.add_text("Regular Mode:", color=main_header_color)
                 dpg.add_spacer()
 
                 dpg.add_text(
@@ -167,8 +202,9 @@ def create_menu():
                     "dice you'd like. Roll the dice, "
                     "and you'll get the results of "
                     "each dice chosen.",
-                    wrap=450
-                )
+                    wrap=450,
+                    color=instruction_color
+                    )
 
                 dpg.add_spacer()
                 dpg.add_spacer()
@@ -178,13 +214,13 @@ def create_menu():
                     label="Play Regular Mode",
                     tag="play_regular",
                     callback=lambda: show_screen("regular_mode")
-                )
+                    )
 
             with dpg.group(width=500):
 
                 # Add text to describe Average Mode:
                 dpg.add_spacer()
-                dpg.add_text("Average Mode:", color=[0, 255, 255])
+                dpg.add_text("Average Mode:", color=main_header_color)
                 dpg.add_spacer()
 
                 dpg.add_text(
@@ -195,8 +231,9 @@ def create_menu():
                     "of the dice to be rolled. We'll then "
                     "calculate the average of each dice over "
                     "all of your rolls.",
-                    wrap=450
-                )
+                    wrap=450,
+                    color=instruction_color
+                    )
 
                 dpg.add_spacer()
                 dpg.add_spacer()
@@ -210,8 +247,7 @@ def create_menu():
 
         # Call footer() with parent = "main_menu":
 
-
-        # Mop the screen name in the dictionary screens:
+        # Map the screen name in the dictionary screens:
         screens["main_menu"] = "main_menu"
 
 
@@ -232,24 +268,27 @@ def create_regular():
         label="Regular Mode",
         tag="regular_mode",
         show=False
-    ):
+        ):
 
         # Add instructions for the game:
-        dpg.add_text("Welcome to Regular Mode!", color=[255, 102, 0])
+        dpg.add_text("Welcome to Regular Mode!", color=title_color)
         dpg.add_spacer()
         dpg.add_separator()
         dpg.add_spacer()
 
         dpg.add_text(
             "Please select whichever dice you would like to roll. "
-            "(Multiple sections allowed and encouraged!)"
+            "(Multiple sections allowed and encouraged!)",
+            color=instruction_color
             )
         dpg.add_spacer()
 
         dpg.add_text(
             "After you've selected which dice you'd like, "
             "please select whether you'd like 1 to 5 of each "
-            "dice chosen.")
+            "dice chosen.",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
         dpg.add_separator()
@@ -287,8 +326,10 @@ def create_regular():
                     dpg.add_spacer()
 
                 else:
+                    # If the checkbox already exists, show it:
                     dpg.show_item(r_boxtag)
 
+                # If an r_slidetag does not exist, add it:
                 if not dpg.does_item_exist(r_slidetag):
                     dpg.add_slider_int(
                         tag=r_slidetag,
@@ -299,6 +340,7 @@ def create_regular():
                     dpg.add_spacer()
                     dpg.hide_item(r_slidetag)
 
+                # If the r_slidetag item exists, show it:
                 else:
                     dpg.show_item(r_slidetag)
 
@@ -314,7 +356,6 @@ def create_regular():
             )
 
         # Call footer() with parent = "main_menu":
-
 
         # Map the screen name in the dictionary screens:
         screens["regular_mode"] = "regular_mode"
@@ -339,21 +380,24 @@ def create_average():
     ):
 
         # Add instructions for the game:
-        dpg.add_text("Welcome to Average Mode!", color=[255, 102, 0])
+        dpg.add_text("Welcome to Average Mode!", color=title_color)
         dpg.add_spacer()
         dpg.add_separator()
         dpg.add_spacer()
 
         dpg.add_text(
             "Please select whichever dice you would like to roll. "
-            "(Multiple sections allowed and encouraged!)"
+            "(Multiple sections allowed and encouraged!)",
+            color=instruction_color
             )
         dpg.add_spacer()
 
         dpg.add_text(
             "After you've selected which dice you'd like, "
             "please select whether you'd like 1 to 5 of each "
-            "dice chosen.")
+            "dice chosen.",
+            color=instruction_color
+            )
         dpg.add_spacer()
 
         dpg.add_separator()
@@ -362,6 +406,7 @@ def create_average():
         # Loop through the dictionary dice_names to
         # dynamically set the tag for each checkbox and slider:
         for name in dice_names:
+
             # Add each checkbox and slider tags in their dictionaries:
             if name != "One Hundred":
                 a_dice_boxes[name] = f"{name}_box_a"
@@ -387,22 +432,25 @@ def create_average():
                         tag=a_boxtag,
                         callback=toggle_slide,
                         user_data=("average", name)
-                    )
+                        )
                     dpg.add_spacer()
 
+                # If the item already exists, show it:
                 else:
                     dpg.show_item(a_boxtag)
 
+                # If an a_slidetag does not exist, add it:
                 if not dpg.does_item_exist(a_slidetag):
                     dpg.add_slider_int(
                         tag=a_slidetag,
                         min_value=1,
                         max_value=10,
                         width=200
-                    )
+                        )
                     dpg.add_spacer()
                     dpg.hide_item(a_slidetag)
 
+                # If the a_slidetag item exists, show it:
                 else:
                     dpg.show_item(a_slidetag)
 
@@ -416,32 +464,40 @@ def create_average():
             "many times you'd like me to roll your dice for "
             "the Average."
             )
+        dpg.add_text(
+            "If you would like to directly "
+            "enter the number, please "
+            "ctrl+click (command+click on "
+            "macOS)",
+            color=tip_color
+            )
         dpg.add_spacer()
 
-        dpg.add_input_int(
+        # TODO: Add a comment to add_slider_int()
+        #
+        dpg.add_slider_int(
             label="Avg Input",
             tag="avg_input",
             default_value=1,
-            min_value=a_rolls,
-            max_value=1000000,
-            width=100,
-            step=5,
-            step_fast=1000
-        )
-
-        # Set the value of avg_slider to global variable a_rolls:
-        dpg.set_value("avg_input", a_rolls)
+            min_value=1,
+            max_value=5000,
+            width=1000,
+            height=15,
+            no_input=False,
+            clamped=True,
+            format="%d",
+            callback=change_a_rolls
+            )
 
         # Add a button to process the information:
         dpg.add_spacer()
         dpg.add_button(
-            label="Roll My Dice!",
+            label=f"Roll My Dice {a_rolls} times!",
             tag="roll_button_a",
             callback=lambda: gather_dice("average")
             )
 
         # Call footer() with parent = "main_menu":
-
 
         # Map the screen name in the dictionary screens:
         screens["average_mode"] = "average_mode"
@@ -463,6 +519,7 @@ def toggle_slide(sender, app_data, user_data):
             "At least part of 'user_data' is "
             f"None\nname: {name}\nmode: {mode}\nuser_data: "
             f"{user_data}")
+        # TODO: Change this to a try-except?
 
     else:
         # Add logic to determine which boxes and sliders to use:
@@ -481,6 +538,21 @@ def toggle_slide(sender, app_data, user_data):
             dpg.set_value(sliders[name], 0)
             # If the box is unchecked, hide the slider:
             dpg.hide_item(sliders[name])
+
+
+# Create a helper function to set the value of a_rolls in create_avg():
+def change_a_rolls(sender, app_data, user_data):
+    # TODO: Create a docstring for function avg_button_callback()
+    '''Docstring'''
+
+    # Declare global a_rolls to be able to modify the variable:
+    global a_rolls
+
+    # Set a_rolls to equal app_data:
+    a_rolls = app_data
+
+    # Set the label to roll as "Roll My Dice {#-of-rolls} times!"
+    dpg.set_item_label("roll_button_a", f"Roll My Dice {a_rolls} times!")
 
 
 # Create function to gather results of choosing dice:
@@ -522,12 +594,8 @@ def create_results(mode):
     selected = r_selected_items if mode == "regular" else a_selected_items
     tag = "regular_result_screen" if mode == "regular" else "average_result_screen"
     label = "Regular Result(s) Screen" if mode == "regular" else "Average Result(s) Screen"
-    title = "Regular Mode Results" if mode == "regular" else "Average Mode Results"
-    color_title = [255, 102, 0]
-    color_sep = [144, 30, 2]
-    color_total_text = [37, 206, 65]
-    color_total = [51, 255, 51]
-    line = "_______________________________"
+    title = "Regular Mode Results" if mode == "regular" else f"Average Mode Results Over {a_rolls} Rolls"
+    line = "__________________________"
 
     # Check if there is already a Result Screen, delete it if so:
     if dpg.does_item_exist(tag):
@@ -539,10 +607,10 @@ def create_results(mode):
         label=label,
         tag=tag,
         show=False
-    ):
+        ):
 
         # Add the title of the screen:
-        dpg.add_text(title, color=color_title)
+        dpg.add_text(title, color=title_color)
         dpg.add_spacer()
         dpg.add_separator()
         dpg.add_spacer()
@@ -569,99 +637,113 @@ def create_results(mode):
                     value = rd.randint(1, sides)
                     total += value
 
+                    # If there were more than one item selected:
                     if len(selected) > 1:
                         # Create a group for each result:
                         with dpg.group():
+
                             dpg.add_spacer()
                             dpg.add_text(f"{label}: {value}")
                             dpg.add_spacer(height=10)
                             dpg.add_text(
-                                line,                    color=color_sep)
+                                line,                    color=sep_color)
                         dpg.add_spacer(height=10)
 
-                    else:
+                    # If there was only one item selected:
+                    elif len(selected) == 1:
                         with dpg.group():
                             dpg.add_spacer()
                             dpg.add_text(f"{label}: {value}")
                         dpg.add_spacer()
 
-                else:
-                    # Get the value of the "avg_input":
-                    rolls = dpg.get_value("avg_input")
+                    else:
+                        raise Exception("Please select at least one dice to play.")
+                    # TODO: Change this to try-except
 
-                    # For [rolls] times, generate a random
+                else:
+                    # For [a_rolls] times, generate a random
                     # integer between 1 and sides and store
                     # in a list:
-                    value_list = [rd.randint(1, sides) for _ in range(rolls)]
+                    value_list = [rd.randint(1, sides) for _ in range(a_rolls)]
                     value_sum = sum(value_list)
 
+                    # Add value_sum to total:
                     total += value_sum
 
                     # Create variable avg. It's the sum of
-                    # value divided by rolls:
-                    avg = total / rolls
+                    # value_sum divided by a_rolls:
+                    avg = value_sum / a_rolls
 
                     # Append avg to the end of list all_values:
                     all_values.append(avg)
 
+                    # If more than one item was selected:
                     if len(selected) > 1:
                         # Create a group for each average result:
                         with dpg.group():
+
                             dpg.add_spacer()
                             dpg.add_text(f"{label}: {avg: .2f}")
                             dpg.add_spacer(height=10)
                             dpg.add_text(
                                 line,
-                                color=color_sep)
+                                color=sep_color)
                             dpg.add_spacer(height=10)
 
-                    else:
+                    elif len(selected) == 1:
                         with dpg.group():
                             dpg.add_spacer()
-                            dpg.add_text(f"{label}: {value_sum}")
+                            dpg.add_text(f"{label}: {avg}")
                         dpg.add_spacer()
+
+                    else:
+                        raise Exception("Please select at least one dice to play.")
+                        # TODO: Change this to try-except
+                    dpg.add_spacer()
 
         dpg.add_spacer()
         dpg.add_separator()
         dpg.add_spacer()
 
         if mode == "regular":
-            # Add text to label "Total Value of All Your Dice: "
-            dpg.add_text("Total Value of All of Your Dice: ", color=color_total_text)
+            # Add text to label "Total Value of All 
+            # Your Dice: "
+            dpg.add_text("Total Value of All of Your Dice: ", color=total_text_color)
             dpg.add_spacer()
 
             # Add text to show the total:
-            dpg.add_text(f"{total}", color=color_total)
+            dpg.add_text(f"{total}", color=total_color)
 
         else:
-            # Take the sum of all_values divided by rolls
-            # for the average total:
-            rolls = dpg.get_value("avg_input")
-
-            # If rolls == 0, raise an exception as we cannot divide by zero:
-            if rolls == 0:
+            # If a_rolls == 0, raise an exception as we cannot divide by zero:
+            if a_rolls == 0:
                 raise Exception(
                     "Please roll at least one time, or we "
                     "cannot calculate your average!!"
-                )
+                    )
 
-            elif rolls is None:
-                raise Exception("rolls == None")
+            # TODO: Create a comment for elif a_rolls is None
+            #
+            elif a_rolls is None:
+                raise Exception("a_rolls == None")
+            # TODO: Can I change this to Try Except? Maybe just put a popup here?
 
             # Otherwise, display the average:
             else:
-                avg_total = (sum(all_values)) / rolls
+                # TODO: Create a comment for avg_total
+                #
+                avg_total = (sum(all_values)) / a_rolls
 
                 # Add text to label "Average Of All Dice,
-                # After Rolling {rolls} times: "
+                # After Rolling {a_rolls} times: "
                 dpg.add_text(
                     "Average Of All Dice, After Rolling "
-                    f"{rolls} times: ", color=color_total_text
+                    f"{a_rolls} times: ", color=total_text_color
                     )
                 dpg.add_spacer()
 
                 # Add text to show the total average:
-                dpg.add_text(f"{avg_total: .2f}", color=color_total)
+                dpg.add_text(f"{avg_total: .2f}", color=total_color)
 
     # Call footer() with parent = "regular_mode"
     # or parent = "average_mode":
