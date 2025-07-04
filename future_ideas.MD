@@ -1,6 +1,10 @@
 # <span style="color:forestgreen">Future Edits and Features</span>
 
-<span style="color:forestgreen">__<-- Back to [README](README.md)__</span>
+
+*****
+<span style="color:forestgreen; background-color:lightyellow">__<-- Back to [README](README.md#in-the-future)__</span>
+*****
+
 
 ## Table of Contents
 - [Future Edits and Features](#future-edits-and-features)
@@ -14,9 +18,10 @@
     - [In Average Mode:](#in-average-mode)
     - [In `create_regular()` and `create_average()`:](#in-create_regular-and-create_average)
     - [Closing everything:](#closing-everything)
-    - [In the documentation.MD file:](#in-the-documentationmd-file)
+    - [In the documentation.md file:](#in-the-documentationmd-file)
     - [Create new modes:](#create-new-modes)
 
+*****
 
 ### In Average Mode Results:
 
@@ -24,20 +29,23 @@
 
 - Example: "Each individual roll: 2, 8, 6, ..., 3."
 
+<br>
 
 ### Find areas of reused code:
 
 - _Such as: `dpg.add_spacer()` and `dpg.add_separator`:_
 
-- Make easy to use variables for these.
+  - Make easy to use variables for these.
 
-- Make little functions for other code that is reused a lot
+  - Make little functions for other code that is reused a lot
 
+<br>
 
 ### In global variables:
 
 - Turn color variables into a dictionary.
 
+<br>
 
 ### Everywhere there's an Exception:
 
@@ -45,6 +53,7 @@
 
 - In the try-except except branches, use a popup that can be shown to the user. The program stays just the same when returning from the popup.
 
+<br>
 
 ### Make the code more secure:
 
@@ -52,6 +61,7 @@
 
 - In the try-except except branches, use a popup that can be shown to the user. The program stays just the same when returning from the popup.
 
+<br>
 
 ### In `change_a_rolls()`:
 
@@ -59,6 +69,7 @@
 
 - Refactor any place that uses `a_rolls` to use the new dynamic `change_rolls()` function.
 
+<br>
 
 ### In Average Mode:
 
@@ -73,21 +84,25 @@
 
   - A slider for the user to choose between 1 and ? decimal places.
 
+<br>
 
 ### In `create_regular()` and `create_average()`:
 
 - Refactor both into `create_mode(mode)` to make it more dynamic and reusable as more modes are added.
 
+<br>
 
 ### Closing everything:
 
 - Add a button to every page saying "I'm Done Playing" that closes the viewport/entire program.
 
+<br>
 
-### In the documentation.MD file:
+### In the documentation.md file:
 
 - This file will include an in-depth documentation of functions and variables.
 
+<br>
 
 ### Create new modes:
 

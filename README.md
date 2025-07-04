@@ -12,13 +12,17 @@
   - [Documentaion](#documentaion)
   - [In the Future](#in-the-future)
   - [Contact and Collaboration](#contact-and-collaboration)
-- [Enjoy playing the game!](#enjoy-playing-the-game)
+- [Thank you for playing _Neat Little Dice Roller_!](#thank-you-for-playing-neat-little-dice-roller)
 
+*****
 
 ## Description
 
-The __Neat Little Dice Roller__ currently includes two modes of game play. One allows the user to choose from several different-sided dice. Then they choose how many of each dice they'd like to roll. The program rolls those dice, and provides the number rolled for each, as well as the total of all the dice rolls. The other mode also allows the user to choose from several different-sided dice. They choose how many of each dice they'd like to roll. Afterwards, the user chooses how many times they want to roll all of the dice. It then displays the average of each die over the number of times the dice were rolled, and the average of all the numbers rolled from each dice over all the rolls.
+The __Neat Little Dice Roller__ currently includes two modes of game play. One allows the user to choose from several different-sided dice. Then they choose how many of each dice they'd like to roll. The program rolls those dice, and provides the number rolled for each, as well as the total of all the dice rolls. 
 
+The other mode also allows the user to choose from several different-sided dice. They choose how many of each dice they'd like to roll. Afterwards, the user chooses how many times they want to roll all of the dice. It then displays the average of each die over the number of times the dice were rolled, and the average of all the numbers rolled from each dice over all the rolls.
+
+<br>
 
 ## Structure of the Program
 
@@ -74,20 +78,22 @@ The __Neat Little Dice Roller__ currently includes two modes of game play. One a
 
   - Display's the average of all of the rolls made with all of the dice chosen, over the total number of rolls chosen
 
-  - _** Footer ** - See Below_
+  - _<span style="color:limegreen">** Footer **</span> - See Below_
 
 - <span style="color:limegreen">** Footer **</span> - At the bottom of each screen except Welcome screen
   - Button that routes back to the Welcome screen
 
+<br>
 
 ## Installation
 
-Please see the [Installation Guide](installation_guide.MD) for instructions on installing everything you need from git to the program files.
+Please see the __[Installation Guide](installation_guide.md)__ for instructions on installing everything you need to run the __<span style="color:forestgreen">Neat Little Dice Roller</span>__ from git to the program files.
 
+<br>
 
 ## Running the Program
 
-To run the program: 
+To run the program after you've installed everything needed: 
 
 - Open the __Terminal__ or __Command Prompt__
 
@@ -95,30 +101,33 @@ To run the program:
 
 - Type `python3 main.py`
 
+<br>
 
 ## Documentaion
 
-Please see the __[Documentation Guide](documentation.MD)__ for the documentation for the __Neat Little Dice Roller__
+Please see the __[Documentation Guide](documentation.md)__ for the documentation for __Neat Little Dice Roller__.
 
 __<span style="color:firebrick">** Please Note **</span>__
 
 <span style="color:firebrick">This document is still under construction.</span>
 
+<br>
 
 ## In the Future
 
 I have a bunch of ideas of how to improve this project, and will be adding new ones occasionally too!
 
-Please see some of my ideas in my [Future Ideas](future_ideas.MD) guide.
+Please see some of my ideas in my __[Future Ideas](future_ideas.md)__ guide.
 
+<br>
 
 ## Contact and Collaboration
 
-If you have any great ideas for this project (or anything I might be interested in) please email me!
+If you have any great ideas for this project (or anything I might be interested in, please email me! (Check out my __[GitHub profile](https://github.com/XLove3)__   for my email.))
 
-If you choose to work on this project, or if you would just like the the document, I created a [Git Flow](git_flow_MD) document to help me through the process.
+If you choose to work on this project, or if you would just like to see what git flow I followed for the program, I created a __[Git Flow](git_flow.md)__ document to help me through the process.
 
-(Though, admittedly, I am still working on the "Work in small pieces" thing :wink:)
+(_Though, admittedly, I am still working on the __"work in small pieces"__ thing!!!_ :wink:)
 
 
 *****
@@ -126,7 +135,7 @@ If you choose to work on this project, or if you would just like the the documen
 
 __<span style="color:firebrick">** Please Note **</span>__
 
-<span style="color:firebrick">_Rerun the program as many times as you'd like, however between each time running the game, you'll want to close the main window, as it will not re-open until the previous one is closed._</span>
+_<span style="color:firebrick">Rerun the program as many times as you'd like, however between each time running the game, you'll want to __close the main window__, as it will not re-open until the previous one is closed.</span>_
 
 
-# <span style="color:forestgreen">Enjoy playing the game!</span>
+# <span style="color:forestgreen">Thank you for playing _Neat Little Dice Roller_!</span>
