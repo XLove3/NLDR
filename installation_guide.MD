@@ -24,6 +24,13 @@ Welcome to the __Installation Guide__! This guide will walk you through installi
       - [Install DearPyGui:](#install-dearpygui)
     - [Installing the Program](#installing-the-program)
       - [Clone the repository:](#clone-the-repository)
+  - [Optional Step: Run the Application/Executable File](#optional-step-run-the-applicationexecutable-file)
+    - [Verify That You Have the Application/Executable File](#verify-that-you-have-the-applicationexecutable-file)
+    - [Create the Application/Executable File](#create-the-applicationexecutable-file)
+    - [Create the Desktop Shortcut](#create-the-desktop-shortcut)
+      - [If you're using Windows:](#if-youre-using-windows)
+      - [If you're using macOS:](#if-youre-using-macos)
+    - [Run and Play the Game:](#run-and-play-the-game)
 
 *****
 
@@ -168,3 +175,90 @@ If pip is not already installed, you can find instructions elsewhere online. One
     `git clone https://github.com/XLove3/NLDR.git`
 
 - Press enter to create your local copy of the program files
+
+***
+
+## Optional Step: Run the Application/Executable File
+
+The program files include an __application/executable file__ that you can run the game by instead of running the game from the __Terminal__ or __Command Prompt__.
+
+<br>
+
+### Verify That You Have the Application/Executable File
+
+Check for your application/executable file:
+
+- Locate your main program folder "NLDR"
+  - Inside of "NLDR", locate the "dist" folder
+
+- Inside of "dist", locate the application/executable file "main"
+
+- If "main" exists here, you have the application/executable file needed
+
+<br>
+
+### Create the Application/Executable File
+
+Create the executable file:
+
+  _<span style="color:firebrick">If you already have the application/executable file "main" installed you can skip this section!</span>_
+
+- Download PyInstaller:
+  - `pip install pyinstaller`
+
+- `cd` to the NLDR folder housing main.py file
+
+- Run PyInstaller:
+  - `pyinstaller --onefile main.py`
+
+- Find the dist folder in the NLDR folder
+  - Inside is the <span style="color:forestgreen">Neat Little Dice Game</span> `.exe` executable file __main__ (or if on __macOS__, the application __main__)
+
+<br>
+
+### Create the Desktop Shortcut
+
+Your instructions differ depending on operating system.
+
+#### If you're using Windows:
+
+- Right click on the desktop
+
+- Select `New > Shortcut`
+
+- Choose "Browse" and find your executable file
+
+- Select the `.exe` executable file
+
+- Click "OK"
+
+- Click "Next"
+
+  - Enter a name for your shortcut (like "NLDR", "Neat Little Dice Roller", "Any Other Name", etc.)
+
+  - Click "Finish"
+
+<br>
+
+#### If you're using macOS:
+
+- Open Finder and find the application
+  - NLDR folder -> dist folder -> application
+
+- Right click/ctrl+click on the application
+
+- Choose "Make Alias"
+
+- Rename the alias (like "NLDR", "Neat Little Dice Roller", "Any Other Name", etc.)
+
+- Drag the alias to the desktop
+
+<br>
+
+### Run and Play the Game:
+
+- Double-click on the renamed alias icon on the desktop (or in Finder)
+
+- Wait a few seconds
+
+- Play the game!
