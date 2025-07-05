@@ -20,6 +20,7 @@
     - [Closing everything:](#closing-everything)
     - [In the documentation.md file:](#in-the-documentationmd-file)
     - [Create new modes:](#create-new-modes)
+    - [In installation\_guide.md file:](#in-installation_guidemd-file)
 
 *****
 
@@ -107,3 +108,9 @@
 ### Create new modes:
 
 - Still developing some ideas for this!
+
+<br>
+
+### In installation_guide.md file:
+
+- Make the instructions for the application/executable file into it's own .md file with a section in README that links to those instructions.

@@ -128,6 +128,7 @@ _<span style="color:firebrick">Branch may be auto or manually deleted after merg
 
 <br>
 
+*** START HERE NEXT TIME ***
 ### Start a new feature:
 
 `git checkout -b {next_branch}`
